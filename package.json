@@ -4,12 +4,16 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
+    "deploy:prod:build-send-restart-back": "deploy-app -d prod:build-send-restart-back",
+    "deploy:prod:send-restart-back": "deploy-app -d prod:send-restart-back",
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "deploy-app": "^1.0.3"
+  },
   "dependencies": {
     "strapi": "3.6.7",
     "strapi-admin": "3.6.7",
