@@ -114,6 +114,8 @@ build
 .strapi-updater.json
 
 ############################
-# Deploy tool
+# Deploy tool & CRA
 ############################
 deploy-app-config.json
+public/cra/*
+!public/cra/.gitkeep
