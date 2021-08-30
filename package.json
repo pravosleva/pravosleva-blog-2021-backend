@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "deploy:prod:build-send-restart-back": "deploy-app -d prod:build-send-restart-back",
-    "deploy:prod:send-restart-back": "deploy-app -d prod:send-restart-back",
+    "deploy:prod:build-send-restart": "deploy-app -d prod:build-cleanup-send",
+    "deploy:prod:send": "deploy-app -d prod:cleanup-send",
     "develop": "strapi develop",
     "start:pm2": "pm2 start yarn --name strapi-1377-prod -- start",
     "start": "strapi start",
