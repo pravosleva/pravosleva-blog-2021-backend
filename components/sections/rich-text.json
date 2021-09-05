@@ -2,12 +2,18 @@
   "collectionName": "components_sections_rich_texts",
   "info": {
     "name": "RichText",
-    "icon": "text-height"
+    "icon": "text-height",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "content": {
       "type": "richtext"
+    },
+    "Gallery": {
+      "type": "component",
+      "repeatable": true,
+      "component": "gallery.gallery"
     }
   }
 }

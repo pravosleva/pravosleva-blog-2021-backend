@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/23/2021 11:57:08 PM"
+    "x-generation-date": "09/04/2021 11:24:41 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -31,7 +31,7 @@
       "description": "Staging server"
     },
     {
-      "url": "http://pravosleva.ru",
+      "url": "YOUR_PRODUCTION_SERVER",
       "description": "Production server"
     }
   ],
@@ -4707,7 +4707,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -4841,7 +4842,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -4899,7 +4901,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5012,7 +5015,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5148,7 +5152,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5445,7 +5450,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5610,7 +5616,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5618,6 +5625,96 @@
                     },
                     "content": {
                       "type": "string"
+                    },
+                    "Gallery": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "photos": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "id",
+                                "name",
+                                "hash",
+                                "mime",
+                                "size",
+                                "url",
+                                "provider"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "alternativeText": {
+                                  "type": "string"
+                                },
+                                "caption": {
+                                  "type": "string"
+                                },
+                                "width": {
+                                  "type": "integer"
+                                },
+                                "height": {
+                                  "type": "integer"
+                                },
+                                "formats": {
+                                  "type": "object"
+                                },
+                                "hash": {
+                                  "type": "string"
+                                },
+                                "ext": {
+                                  "type": "string"
+                                },
+                                "mime": {
+                                  "type": "string"
+                                },
+                                "size": {
+                                  "type": "number"
+                                },
+                                "url": {
+                                  "type": "string"
+                                },
+                                "previewUrl": {
+                                  "type": "string"
+                                },
+                                "provider": {
+                                  "type": "string"
+                                },
+                                "provider_metadata": {
+                                  "type": "object"
+                                },
+                                "related": {
+                                  "type": "string"
+                                },
+                                "created_by": {
+                                  "type": "string"
+                                },
+                                "updated_by": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          }
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -5637,7 +5734,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5710,7 +5808,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -5744,6 +5843,31 @@
                       }
                     },
                     "location": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "sections.hero",
+                        "sections.bottom-actions",
+                        "sections.feature-columns-group",
+                        "sections.feature-rows-group",
+                        "sections.testimonials-group",
+                        "sections.large-video",
+                        "sections.rich-text",
+                        "sections.pricing",
+                        "sections.lead-form",
+                        "sections.markdown-section"
+                      ]
+                    },
+                    "id": {
                       "type": "string"
                     }
                   },
@@ -5944,7 +6068,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6078,7 +6203,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6136,7 +6262,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6249,7 +6376,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6385,7 +6513,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6682,7 +6811,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6847,7 +6977,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6855,6 +6986,96 @@
                     },
                     "content": {
                       "type": "string"
+                    },
+                    "Gallery": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "photos": {
+                            "type": "array",
+                            "items": {
+                              "required": [
+                                "id",
+                                "name",
+                                "hash",
+                                "mime",
+                                "size",
+                                "url",
+                                "provider"
+                              ],
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "alternativeText": {
+                                  "type": "string"
+                                },
+                                "caption": {
+                                  "type": "string"
+                                },
+                                "width": {
+                                  "type": "integer"
+                                },
+                                "height": {
+                                  "type": "integer"
+                                },
+                                "formats": {
+                                  "type": "object"
+                                },
+                                "hash": {
+                                  "type": "string"
+                                },
+                                "ext": {
+                                  "type": "string"
+                                },
+                                "mime": {
+                                  "type": "string"
+                                },
+                                "size": {
+                                  "type": "number"
+                                },
+                                "url": {
+                                  "type": "string"
+                                },
+                                "previewUrl": {
+                                  "type": "string"
+                                },
+                                "provider": {
+                                  "type": "string"
+                                },
+                                "provider_metadata": {
+                                  "type": "object"
+                                },
+                                "related": {
+                                  "type": "string"
+                                },
+                                "created_by": {
+                                  "type": "string"
+                                },
+                                "updated_by": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "title": {
+                            "type": "string"
+                          }
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -6874,7 +7095,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6947,7 +7169,8 @@
                         "sections.large-video",
                         "sections.rich-text",
                         "sections.pricing",
-                        "sections.lead-form"
+                        "sections.lead-form",
+                        "sections.markdown-section"
                       ]
                     },
                     "id": {
@@ -6981,6 +7204,31 @@
                       }
                     },
                     "location": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                },
+                {
+                  "properties": {
+                    "__component": {
+                      "type": "string",
+                      "enum": [
+                        "sections.hero",
+                        "sections.bottom-actions",
+                        "sections.feature-columns-group",
+                        "sections.feature-rows-group",
+                        "sections.testimonials-group",
+                        "sections.large-video",
+                        "sections.rich-text",
+                        "sections.pricing",
+                        "sections.lead-form",
+                        "sections.markdown-section"
+                      ]
+                    },
+                    "id": {
                       "type": "string"
                     }
                   },
