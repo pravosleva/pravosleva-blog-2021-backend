@@ -4,6 +4,13 @@ const {
   globals,
   leadFormSubmissions,
 } = require("../../data/data.js");
+const si = require('systeminformation');
+const { exec } = require('shelljs');
+const { MakeTimer } = require('./utils/MakeTimer');
+
+const siMemTimer = MakeTimer(2000)();
+const systemSpaceTimer = MakeTimer(10000)();
+const connectionsMap = new Map()
 
 async function isFirstRun() {
   const pluginStore = strapi.store({
@@ -206,7 +213,7 @@ async function importSeedData() {
     code: "fr",
   });
 
-  
+
   // Create all entries
   await importGlobal();
   await importPages(pages);
@@ -223,4 +230,36 @@ module.exports = async () => {
       console.error(error);
     }
   }
+
+  // NOTE: For example https://github.com/pravosleva/my-remont-2020-backend/blob/main/config/functions/bootstrap.js
+  const io = require('socket.io')(strapi.server)
+
+  io.on('connection', function(socket) {
+    socket.emit('YOURE_WELCOME', { data: 'tst' })
+
+    connectionsMap.set(socket.id, {})
+    if (connectionsMap.size > 0) {
+      siMemTimer.startTimer(() => {
+        si.mem()
+          .then(data => socket.emit('SI_MEM', data));
+      })
+      systemSpaceTimer.startTimer(() => {
+        const child = exec('df -H', { async: true });
+
+        child.stdout.on('data', (code, stdout, stderr) => {
+          // console.log('Exit code:', code);
+          // console.log('Program output:', stdout);
+          // console.log('Program stderr:', stderr);
+
+          socket.emit('SYSTEM_SPACE', { code, stdout, stderr })
+        })
+      })
+    }
+
+    socket.on('disconnect', (_socket) => {
+      connectionsMap.delete(socket.id)
+      if (connectionsMap.size === 0) siMemTimer.stopTimer();
+    })
+    strapi.io = io
+  })
 };
