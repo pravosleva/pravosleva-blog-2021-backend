@@ -254,11 +254,16 @@ module.exports = async () => {
           socket.emit('SYSTEM_SPACE', { code, stdout, stderr })
         })
       })
+      // Etc.
     }
 
     socket.on('disconnect', (_socket) => {
       connectionsMap.delete(socket.id)
-      if (connectionsMap.size === 0) siMemTimer.stopTimer();
+      if (connectionsMap.size === 0) {
+        siMemTimer.stopTimer();
+        systemSpaceTimer.stopTimer();
+        // Etc.
+      }
     })
     strapi.io = io
   })
