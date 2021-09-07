@@ -238,6 +238,7 @@ module.exports = async () => {
     socket.emit('YOURE_WELCOME', { data: 'tst' })
 
     connectionsMap.set(socket.id, {})
+    console.log(`- connect, total: ${connectionsMap.size}`)
     if (connectionsMap.size > 0) {
       siMemTimer.startTimer(() => {
         si.mem()
@@ -258,6 +259,7 @@ module.exports = async () => {
     }
 
     socket.on('disconnect', (_socket) => {
+      console.log(`- disconnect, total: ${connectionsMap.size}`)
       connectionsMap.delete(socket.id)
       if (connectionsMap.size === 0) {
         siMemTimer.stopTimer();
