@@ -248,10 +248,6 @@ module.exports = async () => {
         const child = exec('df -H', { async: true });
 
         child.stdout.on('data', (code, stdout, stderr) => {
-          // console.log('Exit code:', code);
-          // console.log('Program output:', stdout);
-          // console.log('Program stderr:', stderr);
-
           socket.emit('SYSTEM_SPACE', { code, stdout, stderr })
         })
       })
@@ -259,8 +255,8 @@ module.exports = async () => {
     }
 
     socket.on('disconnect', (_socket) => {
-      console.log(`- disconnect, total: ${connectionsMap.size}`)
       connectionsMap.delete(socket.id)
+      console.log(`- disconnect, total: ${connectionsMap.size}`)
       if (connectionsMap.size === 0) {
         siMemTimer.stopTimer();
         systemSpaceTimer.stopTimer();
