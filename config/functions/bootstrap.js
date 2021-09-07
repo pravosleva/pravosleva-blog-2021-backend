@@ -253,7 +253,7 @@ module.exports = async () => {
       })
       // Etc.
 
-      consolee.log('-- timers started')
+      console.log('-- timers started')
     }
 
     socket.on('disconnect', (_socket) => {
@@ -264,7 +264,7 @@ module.exports = async () => {
         systemSpaceTimer.stopTimer();
         // Etc.
 
-        consolee.log('-- timers stopped')
+        console.log('-- timers stopped')
       }
     })
     strapi.io = io
