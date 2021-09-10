@@ -1825,6 +1825,13 @@
           "slug": {
             "type": "string"
           },
+          "type": {
+            "type": "string",
+            "enum": [
+              "article",
+              "project"
+            ]
+          },
           "localizations": {
             "type": "array",
             "items": {
@@ -1855,6 +1862,13 @@
                 },
                 "slug": {
                   "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "article",
+                    "project"
+                  ]
                 },
                 "localizations": {
                   "type": "array",
@@ -3185,6 +3199,13 @@
           },
           "slug": {
             "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "article",
+              "project"
+            ]
           },
           "localizations": {
             "type": "array",
